@@ -80,9 +80,3 @@ class SnakeReluNet(torch.nn.Module):
         x = self.fc3(x)
         return x
 
-
-def loss(pred, target):
-    squares = (pred - target) ** 2
-    return squares.mean()
-
-
