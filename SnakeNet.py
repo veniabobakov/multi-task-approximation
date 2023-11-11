@@ -1,5 +1,4 @@
 from torchview import draw_graph
-import torch.nn as nn
 import torch
 from torch import nn, sin, pow
 from torch.nn import Parameter
@@ -87,8 +86,3 @@ def loss(pred, target):
     return squares.mean()
 
 
-model = SnakeReluNet(512, 20)
-batch_size = 1
-# device='meta' -> no memory is consumed for visualization
-model_graph = draw_graph(model, input_size=(batch_size, 1), device='meta', save_graph=True, filename="SnakeReluNet")
-model_graph.visual_graph()

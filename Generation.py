@@ -8,9 +8,9 @@ class GenData:
     На выходе получаем обучающие и валлидационные выборки созначениями х и у изучаемых функций
     """
 
-    def __int__(self, *func):
+    def __int__(self, n, *func):
         # Data for train
-        x_train = torch.rand(700)
+        x_train = torch.rand(n)
         x_train = x_train * 40.0 - 20.0
 
         self.x_train = x_train[(x_train <= -4) | (x_train >= 4)]
