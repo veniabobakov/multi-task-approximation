@@ -62,15 +62,13 @@ class Snake(nn.Module):
 
 
 class SnakeReluNet(torch.nn.Module):
-    def __init__(self, n_hidden_neurons, alpha):
+    def __init__(self, n_hidden_neurons, n_out_neurons, alpha):
         super().__init__()
-        # YOUR CODE HERE
         self.fc1 = nn.Linear(1, n_hidden_neurons)
         self.act_snake = Snake(n_hidden_neurons, alpha)
         self.fc2 = nn.Linear(n_hidden_neurons, n_hidden_neurons)
         self.act_relu = nn.ReLU()
-        self.fc3 = nn.Linear(n_hidden_neurons, 1)
-        pass
+        self.fc3 = nn.Linear(n_hidden_neurons, n_out_neurons)
 
     def forward(self, x):
         x = self.fc1(x)
